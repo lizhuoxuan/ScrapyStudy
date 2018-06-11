@@ -28,7 +28,7 @@ class TouxiangSpider(scrapy.Spider):
         for il in imglinks:
             item['imglink'] = "http:" + il
             yield item
-        # print(response.body)
+        # 中文乱码问题
         next_page = response.xpath(u"//a[text()='下一页']/@href").extract()
         if len(next_page) > 0:
             url = "https://www.woyaogexing.com" + next_page[0]
